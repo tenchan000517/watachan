@@ -2,26 +2,103 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 249 249 249;
+    --foreground: 0 0 0;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: 10 10 10;
+      --foreground: 237 237 237;
+    }
+  }
+
+  body {
+    @apply text-foreground bg-background font-inter font-normal leading-[1.8] w-full;
+  }
+
+  a:hover {
+    @apply opacity-70 transition-opacity duration-300;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .hamburger-menu {
+    @apply w-[50px] h-[50px] relative border-none bg-transparent appearance-none p-0 cursor-pointer;
+  }
+  .hamburger-menu__bar {
+    @apply inline-block w-[44%] h-[2px] bg-[#000000] absolute left-1/2 -translate-x-1/2 transition-all duration-500;
+  }
+  .hamburger-menu__bar:first-child {
+    @apply top-4;
+  }
+  .hamburger-menu__bar:nth-child(2) {
+    @apply top-6;
+  }
+  .hamburger-menu__bar:last-child {
+    @apply top-8;
+  }
+  .hamburger-menu--open .hamburger-menu__bar {
+    @apply top-1/2;
+  }
+  .hamburger-menu--open .hamburger-menu__bar:first-child {
+    @apply -translate-y-1/2 rotate-45;
+  }
+  .hamburger-menu--open .hamburger-menu__bar:last-child {
+    @apply -translate-y-1/2 -rotate-45;
+  }
+  .hamburger-menu--open .hamburger-menu__bar:nth-child(2) {
+    @apply hidden;
+  }
+  
+  .navigation {
+    @apply bg-[rgba(34,226,0,0.3)] absolute top-[20vw] left-0 w-full z-[9999] overflow-hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: 
+      max-height 0.8s ease-in-out,
+      opacity 1.5s ease-out 1s;
+  }
+  
+  .navigation--open {
+    max-height: calc(100vh - 20vw);
+    opacity: 1;
+    transition: 
+      max-height 1.2s ease-in-out,
+      opacity 0.5s ease-out; 
+  }
+
+  .navigation__list {
+    @apply text-center list-none p-0 m-0;
+  }
+  .navigation__list-item {
+    @apply border-b border-[#D9D9D9];
+  }
+  .navigation__list-item:first-child {
+    @apply border-t border-[#D9D9D9];
+  }
+  .navigation__link {
+    @apply text-foreground font-normal no-underline block py-4 transition-all duration-300;
+  }
 }
 
+
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .title-h2 {
+    @apply pl-[1vw] z-10 relative;
+  }
+
+  .title-h2 h2 {
+    @apply absolute mb-[0.2rem] font-normal text-[clamp(1.25rem,1.136rem+0.48vw,1.5rem)] pl-[min(9vw,45px)];
+  }
+
+  .title-h2 p {
+    @apply relative top-[max(-9vw,-35px)] left-0 text-[3.8em] -z-10 h-[min(14vw,49px)];
+  }
+
+  .title-h2 p span {
+    @apply text-[0.65em];
   }
 }

@@ -1,0 +1,60 @@
+{
+    "fields": [
+      {
+        "id": "furigana",
+        "name": "entry.1873355356",
+        "label": "ふりがな",
+        "type": "text",
+        "placeholder": "ふりがな",
+        "required": true
+      },
+      {
+        "id": "name",
+        "name": "entry.946035362",
+        "label": "名前",
+        "type": "text",
+        "placeholder": "名前",
+        "required": true
+      },
+      {
+        "id": "birthdate",
+        "name": "entry.204902190",
+        "label": "生年月日",
+        "type": "date",
+        "required": true
+      },
+      {
+        "id": "gender",
+        "name": "entry.1641764328",
+        "label": "性別",
+        "type": "radio",
+        "options": ["男性", "女性"],
+        "required": true
+      },
+      {
+        "id": "email",
+        "name": "entry.1576761590",
+        "label": "メールアドレス",
+        "type": "email",
+        "placeholder": "メールアドレス",
+        "required": true
+      },
+      {
+        "id": "phone",
+        "name": "entry.1140571906",
+        "label": "電話番号",
+        "type": "tel",
+        "placeholder": "電話番号",
+        "required": true
+      },
+      {
+        "id": "message",
+        "name": "entry.49744826",
+        "label": "お問い合わせ内容",
+        "type": "textarea",
+        "placeholder": "お問い合わせ内容",
+        "required": true
+      }
+    ]
+  }
+  
